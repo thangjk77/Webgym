@@ -8,7 +8,10 @@
 	<title>Document</title>
 
 	<?php
-echo shell_exec("python testPython.py 'parameter1'");
+    // $command = escapeshellcmd('python ../../../graduation-thesis/example.py');
+    // $output = shell_exec($command);
+    // echo $output;
+		echo shell_exec("python example.py");
 ?>
 </head>
 
