@@ -16,9 +16,7 @@
 	}elseif($tam=='tintuc') {
 		include("main/tintuc.php");
 	}
-	elseif($tam=='host') {
-		include("main/host.php");
-	}
+
 	elseif($tam=='taikhoan') {
 		include("main/index_sign-in.php");
 	}

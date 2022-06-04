@@ -1,3 +1,71 @@
+<?php 
+	// session_start();
+	// include('./admincp/config/config.php');
+	// if (isset($_POST['dangnhap'])){
+	// 	$taikhoan = $_POST['email'];
+	// 	$matkhau = md5($_POST['password']);
+	// 	$sql = "SELECT * FROM host_admin WHERE email='".$taikhoan."' AND password='".$matkhau."' LIMIT 1";
+	// 	$row = mysqli_query($mysqli,$sql);
+	// 	$count = mysqli_num_rows($row);
+	// 	if($count>0) {
+	// 		$_SESSION['dangnhap'] = $taikhoan;
+	// 		header("Location:./admincp/index.php");			
+	// 	}else {
+	// 		echo '<script>alert("Tài khoản mật khẩu không đúng, vui lòng nhập lại.")</script>';
+	// 		header("Location:index.php?quanly=taikhoan&id=7");			
+	// 	} }
+
+	session_start();
+	include('./admincp/config/config.php');
+	if (isset($_POST['dangnhap'])){
+		$username = $_POST['email'];
+		$password = md5($_POST['password']);
+		$sql = "SELECT * FROM host_dangky WHERE email='".$username."' AND password='".$password."' LIMIT 1";
+		$row = mysqli_query($mysqli,$sql);
+		$count = mysqli_num_rows($row);
+		if($count>0) {
+			$row_data = mysqli_fetch_array($row);
+			$_SESSION['dangnhap'] = $row_data['tenkhachhang'];
+			// $_SESSION['dangnhap'] = $username;
+			echo '<P>đăng nhập thành công</P>';	
+			header("Location:./admincp/index.php");			
+		}else {
+			echo '<P>Vui lòng nhập lại</P>'		;	
+		}
+	}
+	if(isset($_POST['dangky'])) {
+		$tenkhachhang = $_POST['hovaten'];
+		$sodienthoai = $_POST['sodienthoai'];
+		$email = $_POST['email'];
+		$password = md5($_POST['password']);
+		$sql_dangky = mysqli_query($mysqli,"INSERT INTO host_dangky(tenkhachhang,sodienthoai,email,password) VALUE('".$tenkhachhang."','".$sodienthoai."','".$email."','".$password."')");
+		if($sql_dangky) {
+			
+			echo '
+			<div class="modal js-modal">
+				<div class="sign-up-success js-sign-up-success">
+					<div class="modal-close js-modal-close">
+					<i class="fa-solid fa-xmark"></i>
+					</div>
+					<div class="success-notice">
+						<span class="success-notice_text"> Chúc mừng bạn đã đăng ký thành công</span>
+						<span class="success-notice_text">Mã giảm giá của bạn là </span>
+						<span class="success-notice_text">
+							<p id="demo"></p>
+							<script>
+								let x = Math.floor((Math.random() * 100000) + 1);
+								document.getElementById("demo").innerHTML = x;
+							</script>
+						</span>
+						<span class="success-notice_text">Sử dụng mã khi đến tạo thẻ thành viên tại tất cả phòng tập của JK GYM !</span>
+					</div>
+				</div>
+			</div>
+				';
+				}
+			}
+		?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,81 +81,15 @@
 	<link rel="stylesheet" href="./css/sign__in.css">
 	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
 		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+		integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 
 <body>
 	<div class="app__sign-in">
-		<!-- <div class="header">
-            <div class="header-row">
-                <div class="header__navbar">
-                    <div class="header__navbar-menu">
-                        <div class="header__logo">
-                            <a href="/index.html" class="header__logo-link">
-                                <svg version="1.1" viewBox="0 0 244 50" class="svg-icon svg-fill" style="width: 244px;">
-    						<path
-      						pid="0"
-       						 d="M25.093 0c13.781.06 24.94 11.317 24.882 25.106C49.917 38.894 38.663 50.058 24.88 50 11.1 49.942-.059 38.683.001 24.894.057 11.106 11.31-.058 25.092 0zm11.801 31.9L14.398 16.053c.241-.26.48-.518.74-.777 2.7-2.687 5.971-4.031 9.775-4.015 3.804.015 7.064 1.388 9.741 4.098.238.241.476.482.694.743l-5.951 4.133 2.381 1.688 5.153-3.576v.02L39.33 16.7c-.692-1.203-1.584-2.325-2.616-3.39-3.231-3.292-7.167-4.947-11.788-4.967-4.6-.019-8.53 1.603-11.809 4.867a17.806 17.806 0 00-2.682 3.408l1.429 1.004 23.429 16.51c-.24.26-.48.518-.74.777-2.7 2.687-5.971 4.011-9.775 3.996-3.803-.016-7.063-1.37-9.74-4.08-.258-.26-.496-.521-.734-.782l6.111-4.251-.139-.181-2.183-1.528-5.373 3.735v-.021l-2.377 1.65a17.824 17.824 0 002.654 3.43c3.253 3.291 7.169 4.946 11.769 4.965 4.62.021 8.549-1.602 11.83-4.866 1.06-1.075 1.96-2.21 2.682-3.406l-2.383-1.67zm45.839 2.652l-12.45-.05.096-21.789a.957.957 0 00-.965-.945l-.678-.003a.96.96 0 00-.974.939v.047c-.048.095-.05.236-.05.33l-.098 22.636a1.337 1.337 0 001.351 1.326l13.805.056a.958.958 0 00.973-.938l.003-.662a1.037 1.037 0 00-1.013-.946v-.001zm27.64-22.67l-.871-.003c-.563-.003-1.027.42-1.027.937l-.075 15.878c-.014 3.157-3.252 5.735-7.197 5.72-3.943-.014-7.158-2.618-7.144-5.775l.123-15.5.052-.282a.957.957 0 00-.201-.756 1.128 1.128 0 00-.767-.332l-.87-.004c-.513-.002-.924.326-1.028.75a.857.857 0 00-.156.47l-.073 15.69c-.02 4.616 4.47 8.402 9.95 8.424 5.48.022 10.004-3.73 10.025-8.3l.122-15.5.054-.282a.952.952 0 00-.203-.755c-.152-.189-.458-.379-.714-.38zm48.638 11.226c-3.275-1.249-6.696-2.496-6.688-4.393.01-2.42 2.721-4.401 6.05-4.387 3.331.014 6.025 2.017 6.014 4.436l-.002.38a.96.96 0 00.961.953l.675.003a.96.96 0 00.971-.945v-.38c.009-1.66-.709-3.276-2.006-4.515-1.635-1.618-4.092-2.532-6.65-2.494-4.873-.02-8.698 3.047-8.715 6.938.03 3.748 4.416 5.38 8.656 6.962 3.324 1.247 6.795 2.495 6.785 4.487-.01 2.372-3.155 4.399-6.775 4.385-3.668-.016-6.747-2.07-6.737-4.44l.001-.38a.961.961 0 00-.96-.954l-.676-.002a.96.96 0 00-.97.945v.38c-.018 3.843 4.215 6.991 9.38 7.012 5.163.022 9.423-3.092 9.44-6.934-.033-3.796-4.464-5.427-8.754-7.057zM193.66 11.84l-18.844-.076c-.547-.003-.996.42-.999.94l-.002.66c-.002.52.443.946.99.949l8.103.032-.095 21.802c-.003.52.443.947.99.949l.696.002c.546.003.996-.42 1-.94l.095-21.802 8.055.031c.547.003.996-.42.999-.94l.003-.66c.003-.52-.443-.946-.99-.947zm49.264.515c-.144-.33-.481-.52-.867-.52l-.87-.005a.963.963 0 00-.677.28l-.145.14-.147.142-6.609 9.677-6.72-9.734c-.048-.046-.096-.094-.096-.14l-.143-.143a.97.97 0 00-.675-.285l-.774-.003a1.021 1.021 0 00-.872.515 1.03 1.03 0 00.045.988l7.966 11.576-.049 11.307c.006.527.437.95.964.946l.675.002a.957.957 0 00.97-.937l.049-11.308 7.923-11.509c.194-.329.243-.705.052-.989zm-37.898 12.047l3.75-7.994 3.728 8.023-7.478-.03zm15.615 10.954v-.047l-10.5-22.733c-.15-.425-.549-.71-1.102-.807-.603-.049-1.156.231-1.41.703v.046l-10.705 22.697v.047l-.204.471c-.095.283-.06.595.097.849.188.258.483.416.802.428l.854.004c.453.001.806-.282.958-.657l.05-.141 4.314-9.277 9.95.04 4.28 9.31.049.14c.15.38.5.664.952.667l.854.002c.352.002.654-.139.806-.422.152-.281.254-.563.104-.847l-.149-.473zm-86.008-15.15l.817.003a.963.963 0 00.729-.347l4.755-6.218.412-.478a.763.763 0 00.095-.915c-.135-.306-.453-.482-.816-.483l-.863-.004a.929.929 0 00-.868.608l-4.983 6.522a.94.94 0 00-.096.915c.135.22.453.394.816.397h.002zm-6.998 8.45l-.819-.002a.96.96 0 00-.728.347l-4.755 6.207-.413.48a.77.77 0 00-.094.92c.135.309.452.485.816.488l.864.002a.91.91 0 00.82-.478l5.03-6.601a.949.949 0 00.095-.92 1.027 1.027 0 00-.816-.443zm8.019-.453l.148.14 5.55 7.248c.248.284.246.662.095.99-.15.332-.5.519-.9.517l-.896-.004a1.013 1.013 0 01-.697-.286l-.149-.14c-.03-.002-.042-.02-.059-.044a.212.212 0 00-.04-.052l-5.501-7.151a1.005 1.005 0 01-.15-.237l-11.694-15.39-.446-.521c-.248-.285-.246-.662-.096-.993.15-.33.501-.518.9-.516l.897.004a.99.99 0 01.845.428l.15.19 11.992 15.721s.05.048.05.096z"
-   							 ></path>
-							</svg>
-                            </a>
-                        </div>
 
-                    </div>
-                    <div class="header__navbar-lists">
-                        <ul class="header-lists">
-                            <li class="header-item_account ">Guide</li>
-                            <li class="header-item_account ">Host</li>
-                            <li class="header-item_account js-sign-up">Đăng ký</li>
-                            <li class="header-item_account js-sign-in">Đăng nhập</li>
-                        </ul>
-                        <ul class="header-lists header-lists-user">
-                            <li class="header-item-user header-item-user-flat">
-                                <img src="https://salt.tikicdn.com/ts/product/68/61/d5/2b90bce2198511e3b489dae2bd707424.jpg" alt="" class="header-item-user-img">
-                            </li>
-                            <li class="header-item-user header-item-user-text">VND</li>
-                            <li class="header-item-user">
-                                <i class="header-item-user-icon fas fa-sort-down"></i>
-                            </li>
-
-                            <div class="header__options">
-                                <div class="header__options-container">
-                                    <ul class="header__options-country">
-                                        <li class="country-list">
-                                            <img src="https://salt.tikicdn.com/ts/product/68/61/d5/2b90bce2198511e3b489dae2bd707424.jpg" alt="" class="country-list-img">
-                                            <span class="country-name">Tiếng Việt</span>
-                                            <i class="fas fa-check"></i>
-                                        </li>
-                                        <li class="country-list">
-                                            <img src="https://png.pngtree.com/png-vector/20190322/ourlarge/pngtree-button-england-flag-vector-template-design-png-image_859953.jpg" alt="" class="country-list-img">
-                                            <span class="country-name">English</span>
-                                        </li>
-                                        <li class="country-list">
-                                            <img src="https://png.pngtree.com/png-vector/20190322/ourlarge/pngtree-button-korea-republic-flag-vector-template-design-png-image_859961.jpg" alt="" class="country-list-img">
-                                            <span class="country-name">Korea</span>
-                                        </li>
-                                    </ul>
-
-                                    <ul class="header__options-currency">
-                                        <li class="currency-list">
-                                            <span class="currency-uint">VND</span>
-                                            <span class="currency-country">Việt Nam Đồng</span>
-                                            <i class="fas fa-check"></i>
-                                        </li>
-                                        <li class="currency-list">
-                                            <span class="currency-uint">USD</span>
-                                            <span class="currency-country">United States Dollar</span>
-                                        </li>
-                                        <li class="currency-list">
-                                            <a class="currency-more-account">Xem thêm</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div> -->
 
 		<div class="sign__banner">
 			<div class="sign__banner-text">
@@ -131,82 +133,92 @@
 					</div>
 
 					<div class="col l-4 sign__in-active">
-						<div class="account">
-							<span class="account--heading">Đăng nhập</span>
-							<span class="account--desc">Đăng nhập để trải nghiệm</span>
-							<div class="account--form">
-								<input type="email" class="account--email" placeholder="Địa chỉ email">
-								<i class="far fa-envelope account--form--email-icon"></i>
+						<form action="" autocomplete="off" method="POST">
+							<div class="account">
+								<span class="account--heading">Đăng nhập</span>
+								<span class="account--desc">Đăng nhập để trải nghiệm</span>
+								<div class="account--form">
+									<input type="text" class="account--email" placeholder="Địa chỉ email" name="email">
+									<i class="far fa-envelope account--form--email-icon"></i>
+								</div>
+								<div class="account--form">
+									<input type="password" class="account--password" placeholder="Mật khẩu"
+										name="password">
+									<i class="fas fa-lock account--form--password-icon"></i>
+								</div>
+								<input type="submit" name="dangnhap" value="Đăng nhập" class="account--btn">
+								<ul class="account--lists">
+									<li class="account--item">Quên mật khẩu? <a href="" class="account--link">Nhấn vào
+											đây</a></li>
+									<li class="account--item">Bạn chưa có tài khoản Luxstay?
+									<li class="account--link js-sign-up">Đăng ký</li>
+									</li>
+									<li class="account--item">Hoặc</li>
+									<li class="account--item account--item-btn">Đăng nhập với Facebook
+										<i class="fab fa-facebook-square account--item-btn-fb"></i>
+									</li>
+									<li class="account--item account--item-btn">Đăng nhập với Google
+										<i class="fab fa-google account--item-btn-gg"></i>
+									</li>
+								</ul>
 							</div>
-							<div class="account--form">
-								<input type="password" class="account--password" placeholder="Mật khẩu">
-								<i class="fas fa-lock account--form--password-icon"></i>
-							</div>
-							<button class="account--btn">Đăng nhập</button>
-							<ul class="account--lists">
-								<li class="account--item">Quên mật khẩu? <a href="" class="account--link">Nhấn vào
-										đây</a></li>
-								<li class="account--item">Bạn chưa có tài khoản Luxstay? <a href=""
-										class="account--link">Đăng ký</a> </li>
-								<li class="account--item">Hoặc</li>
-								<li class="account--item account--item-btn">Đăng nhập với Facebook
-									<i class="fab fa-facebook-square account--item-btn-fb"></i>
-								</li>
-								<li class="account--item account--item-btn">Đăng nhập với Google
-									<i class="fab fa-google account--item-btn-gg"></i>
-								</li>
-							</ul>
-						</div>
+						</form>
 					</div>
 
 					<div class="col l-4 sign__up-active sign__up-active-disable">
-						<div class="account ">
-							<span class="account--heading">Đăng ký thành viên</span>
+						<form action="" autocomplete="off" method="POST">
+							<div class="account ">
+								<span class="account--heading">Đăng ký thành viên</span>
 
-							<span class="sign-up__account-heading">Họ và tên</span>
-							<div class="account--form account--form__sign-up">
-								<input type="text" class="account--password" placeholder="Họ và tên">
-								<i class="fas fa-user account--form--password-icon"></i>
+								<span class="sign-up__account-heading">Họ và tên</span>
+								<div class="account--form account--form__sign-up">
+									<input name="hovaten" type="text" class="account--password" placeholder="Họ và tên">
+									<i class="fas fa-user account--form--password-icon"></i>
+								</div>
+
+								<span class="sign-up__account-heading">Số điện thoại</span>
+								<div class="account--form account--form__sign-up">
+									<button class="phone-number-area">
+										<img src="https://product.hstatic.net/200000122283/product/c-e1-bb-9d-vi-e1-bb-87t-nam_2c0683597d2d419fac401f51ccbae779_grande.jpg"
+											alt="" class="phone-number-area-icon">
+										<!-- <i class="far fa-star phone-number-area-icon"></i> -->
+										<span class="phone-number-area-code">+84</span>
+										<i class="fas fa-sort-down"></i>
+									</button>
+									<input name="sodienthoai" type="text" class="account--phone-number"
+										placeholder="Số điện thoại">
+								</div>
+
+								<span class="sign-up__account-heading">Địa chỉ email</span>
+								<div class="account--form account--form__sign-up">
+									<input name="email" type="email" class="account--email" placeholder="Địa chỉ email">
+									<i class="far fa-envelope account--form--email-icon"></i>
+								</div>
+
+								<span class="sign-up__account-heading">Mật khẩu</span>
+								<div class="account--form account--form__sign-up">
+									<input name="password" type="password" class="account--password"
+										placeholder="Mật khẩu">
+									<i class="fas fa-lock account--form--password-icon"></i>
+								</div>
+
+								<span class="sign-up__account-heading">Xác nhận mật khẩu</span>
+								<div class="account--form account--form__sign-up">
+									<input type="password" class="account--password" placeholder="Xác nhận mật khẩu">
+									<i class="fas fa-lock account--form--password-icon"></i>
+								</div>
+
+								<input type="submit" name="dangky" value="Đăng ký" class="account--btn">
+								<ul class="account--lists">
+									<li class="account--item">Bạn đã có tài khoản Luxstay?
+									<li class="account--link js-sign-in">Đăng nhập</li>
+									</li>
+									<li class="account--item">Tôi đồng ý với <a href="" class="account--link"> Bảo
+											mật</a>
+										và <a href="" class="account--link">Điều khoản hoạt động</a> của Luxstay</li>
+								</ul>
 							</div>
-
-							<span class="sign-up__account-heading">Số điện thoại</span>
-							<div class="account--form account--form__sign-up">
-								<button class="phone-number-area">
-									<img src="https://product.hstatic.net/200000122283/product/c-e1-bb-9d-vi-e1-bb-87t-nam_2c0683597d2d419fac401f51ccbae779_grande.jpg"
-										alt="" class="phone-number-area-icon">
-									<!-- <i class="far fa-star phone-number-area-icon"></i> -->
-									<span class="phone-number-area-code">+84</span>
-									<i class="fas fa-sort-down"></i>
-								</button>
-								<input type="text" class="account--phone-number" placeholder="Số điện thoại">
-							</div>
-
-							<span class="sign-up__account-heading">Địa chỉ email</span>
-							<div class="account--form account--form__sign-up">
-								<input type="email" class="account--email" placeholder="Địa chỉ email">
-								<i class="far fa-envelope account--form--email-icon"></i>
-							</div>
-
-							<span class="sign-up__account-heading">Mật khẩu</span>
-							<div class="account--form account--form__sign-up">
-								<input type="password" class="account--password" placeholder="Mật khẩu">
-								<i class="fas fa-lock account--form--password-icon"></i>
-							</div>
-
-							<span class="sign-up__account-heading">Xác nhận mật khẩu</span>
-							<div class="account--form account--form__sign-up">
-								<input type="password" class="account--password" placeholder="Xác nhận mật khẩu">
-								<i class="fas fa-lock account--form--password-icon"></i>
-							</div>
-
-							<button class="account--btn">Đăng ký</button>
-							<ul class="account--lists">
-								<li class="account--item">Bạn đã có tài khoản Luxstay? <a href=""
-										class="account--link">Đăng nhập</a></li>
-								<li class="account--item">Tôi đồng ý với <a href="" class="account--link"> Bảo mật</a>
-									và <a href="" class="account--link">Điều khoản hoạt động</a> của Luxstay</li>
-							</ul>
-						</div>
+						</form>
 					</div>
 
 
@@ -233,7 +245,25 @@
 		formSignIn.addEventListener('click', showFormsignin)
 		</script>
 
+		<script>
+		const notice = document.querySelectorAll('.sign-up-success')
+		const modal = document.querySelector('.js-modal')
+		const modalClose = document.querySelector('.js-modal-close')
+		const modalSignUpSuccess = document.querySelector('.js-sign-up-success')
+
+		function hideNotice() {
+			modal.classList.add('close')
+		}
+
+		modalClose.addEventListener('click', hideNotice)
+		modal.addEventListener('click', hideNotice);
+		modalSignUpSuccess.addEventListener('click', function(event) {
+			event.stopPropagation()
+		})
+		</script>
+
 	</div>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
 
 </html>

@@ -22,11 +22,12 @@
 						<a href="index.php?quanly=tintuc&id=5">Tin tức</a>
 					</li>
 					<li class="header-narbar__services-item">
-						<a href="index.php?quanly=host&id=6">Host</a>
+						<a href="../../web-gymPHP/admincp/index.php">Host</a>
 					</li>
 					<li class="header-narbar__services-item">
 						<a href="index.php?quanly=taikhoan&id=7">Tài khoản</a>
 					</li>
+
 
 				</ul>
 			</div>

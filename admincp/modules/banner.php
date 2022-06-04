@@ -1,6 +1,6 @@
 <div class="sign__banner">
 	<div class="sign__banner-text">
-		<span class="sign__banner-heading">Đăng ký thành viên Luxstay - Tích điểm thưởng và nhận ưu đãi</span>
+		<span class="sign__banner-heading">Đăng ký thành viên JK Gym - Tích điểm thưởng và nhận ưu đãi</span>
 		<span class="sign__banner-desc">Nhanh chóng, tiện lợi và an toàn. Đăng ký liền tay, rinh ngay quyền lợi.</span>
 	</div>
 </div>

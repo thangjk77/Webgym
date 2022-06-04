@@ -9,6 +9,10 @@
     background-image: linear-gradient(to right, #c2e59c, #64b3f4);
 }
 
+.sign__container {
+    margin-top: 40px;
+}
+
 .sign__banner-text {
     display: flex;
     flex-direction: column;
@@ -159,6 +163,11 @@
 .account--password {}
 
 .account--link {
+    color: #64b3f4;
+    opacity: 1;
+}
+
+li.account--link {
     color: #64b3f4;
     opacity: 1;
 }
@@ -330,4 +339,64 @@
 .js-sign-in {
     color: var(--primary-color);
     cursor: pointer;
+}
+
+
+/* sign-up-success */
+
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.sign-up-success {
+    background: #fff;
+    width: 500px;
+    min-height: 200px;
+    position: relative;
+    animation: modalFadeIn ease 0.9s;
+}
+
+.success-notice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.success-notice_text {
+    font-size: 1.4rem;
+    padding: 12px;
+}
+
+.modal-close {
+    position: absolute;
+    font-size: 28px;
+    right: 0;
+    top: 0;
+    padding-right: 12px;
+    padding-top: 6px;
+    cursor: pointer;
+}
+
+.close {
+    display: none;
+}
+
+@keyframes modalFadeIn {
+    from {
+        transform: translateY(-250px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }

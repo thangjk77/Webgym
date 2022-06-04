@@ -16,13 +16,15 @@ import mysql.connector
 import cv2
 import os
 import face_recognition
+import datetime
+import sys
 
 class CamApp(App):
 
     def build(self):
         # Main layout components
         self.web_cam = Image(size_hint=(1, .7))
-        self.button = Button(text="Take photo", on_press=self.take_photo, size_hint=(1, .15))
+        self.button = Button(text="Verification", on_press=self.recognition, size_hint=(1, .15))
         self.verification_label = Label(text="", size_hint=(1, .15))
 
         # Add items to layout
@@ -48,14 +50,14 @@ class CamApp(App):
         img_texture.blit_buffer(buf, colorfmt='bgr', bufferfmt='ubyte')
         self.web_cam.texture = img_texture
 
-    def insertOrUpdate(self, id):
+    def insertDate(self, id, date):
         conn = mysql.connector.connect(
             host="localhost", user="root",
             password="", database="web-gymphp")
 
         cursor = conn.cursor()
 
-        query = "Select * from host_quanlynguoidung Where ID= " + str(0)
+        query = "Select * from host_quanlynguoidung Where ID= " + str(id)
 
         cursor.execute(query)
 
@@ -65,64 +67,77 @@ class CamApp(App):
             isRecordExist = 1
 
         if (isRecordExist == 0):
-            query = "Insert into host_quanlynguoidung(ID) values(" + str(id) + "')"
+            query = "Insert into host_quanlynguoidung(Date_of_issue) values(" + str(date) + "')"
         else:
-            query = "Update host_quanlynguoidung Set ID = '" + str(id) + "' Where ID= " + str(0)
+            query = "Update host_quanlynguoidung Set Date_of_issue= '" + str(date) + "' Where ID= " + str(id)
 
         cursor.execute(query)
         conn.commit()
         cursor.close()
         conn.close()
 
-    def generate_id(self):
+    def getProfile(self, id):
         conn = mysql.connector.connect(
             host="localhost", user="root",
             password="", database="web-gymphp")
 
         cursor = conn.cursor()
 
-        query = "Select * from host_quanlynguoidung "
+        query = "Select * from host_quanlynguoidung Where ID= " + str(id)
 
         cursor.execute(query)
 
-        max = 0
-
+        profile = None
         for row in cursor:
-            if (row[0] > max):
-                max = row[0]
+            profile = row
         cursor.close()
         conn.close()
-        return max + 1
+        return profile
 
-    def check(self, frame):
+    def getDate(self):
+        date = datetime.datetime.now().date()
+        return date
+
+    def verification(self, frame):
         cv2.imwrite(os.path.join('input_image', 'input_image.jpg'), frame)
         img = face_recognition.load_image_file("input_image/input_image.jpg")
         face_locations = face_recognition.face_locations(img)
         if (face_locations == []):
-            return False
+            print("Make sure the camera captures the entire face")
+            return None
+        picture_of_me = face_recognition.load_image_file("input_image/input_image.jpg")
+        my_face_encoding = face_recognition.face_encodings(picture_of_me)[0]
+        list = os.listdir('verification_image')
+        number_files = 0
+        for image in os.listdir(os.path.join('verification_image')):
+            unknown_picture = face_recognition.load_image_file("verification_image/" + image)
+            unknown_face_encoding = face_recognition.face_encodings(unknown_picture)[0]
+            results = face_recognition.compare_faces([my_face_encoding], unknown_face_encoding)
+            number_files += 1
+            if number_files > len(list):
+                return None
+            if results[0] == True:
+                return image.strip('User..jpg')
+
+    def check_expiry(self, id):
+        profile = self.getProfile(id)
+        date = datetime.date(int(profile[6][0:4]), int(profile[6][5:7]), int(profile[6][8:10]))
+        if (self.getDate() <= date):
+            self.verification_label.text = profile[1] + " Còn thời hạn"
         else:
-            return True
+            self.verification_label.text = profile[1] + " Đã hết hạn"
 
-    def close_application(self):
-        App.get_running_app().stop()
-        Window.close()
 
-    def take_photo(self, *args):
-        sampleNum = 0
+    def recognition(self, *args):
         ret, frame = self.capture.read()
         frame = frame[120:120 + 250, 200:200 + 250, :]
-        self.verification_label.text = 'Can not detect your face' if self.check(frame) == False else ''
-        if self.check(frame) == False:
-            sampleNum = 0
+        id = self.verification(frame)
+        if (id == None):
+            self.verification_label.text = "Can not identify your face"
         else:
-            id = self.generate_id()
-            self.insertOrUpdate(id)
-            cv2.imwrite('verification_image/User.' + str(id) + '.jpg', frame)
-
-            sampleNum += 1
-        if (sampleNum == 1):
-            self.close_application()
-
+            # print(id)
+            self.check_expiry(id)
+        
 if __name__ == '__main__':
     Config.set('graphics', 'width', '250')
     Config.set('graphics', 'height', '350')

@@ -1,3 +1,10 @@
+<?php 
+	session_start();
+	if(!isset($_SESSION['dangnhap'])){
+		header('Location:../index.php?quanly=taikhoan&id=7');
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
