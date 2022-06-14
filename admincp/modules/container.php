@@ -1,7 +1,7 @@
 <?php 
 	if(isset($_GET['dangxuat'])&&$_GET['dangxuat']==1) {
 		unset($_SESSION['dangnhap']);
-		header('Location:.././index.php?quanly=taikhoan&id=7');
+		header('Location:../../../../../web-gymPHP/index.php?quanly=taikhoan&id=7');
 	}
 ?>
 <div class="manage">
@@ -15,7 +15,7 @@
 					người
 					dùng</a></li>
 		</button>
-		<button class="button-51" role="button">
+		<!-- <button class="button-51" role="button">
 			<li class="manage-table-item"><a href="index.php?action=quanlydichvu&query=them">Quản lý dịch
 					vụ</a>
 			</li>
@@ -31,7 +31,7 @@
 					tài
 					khoản admin
 				</a></li>
-		</button>
+		</button> -->
 
 		<button class="button-51" role="button">
 			<li class="manage-table-item"><a href="index.php?dangxuat=1">Đăng xuất : <?php 

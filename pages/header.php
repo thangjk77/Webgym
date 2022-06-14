@@ -10,19 +10,19 @@
 			<div class="header-narbar-lists">
 				<ul class="header-narbar__services">
 					<li class="header-narbar__services-item">
-						<a href="index.php?quanly=clb&id=2">CLB</a>
+						<a href="#dichvu">Dịch vụ</a>
 					</li>
-					<li class="header-narbar__services-item">
-						<a href="index.php?quanly=dichvu&id=3">Dịch vụ</a>
-					</li>
-					<li class="header-narbar__services-item">
+					<!-- <li class="header-narbar__services-item">
 						<a href="index.php?quanly=lichhoc&id=4">Lịch học</a>
+					</li> -->
+					<li class="header-narbar__services-item">
+						<a href="#tintuc">Tin tức</a>
 					</li>
 					<li class="header-narbar__services-item">
-						<a href="index.php?quanly=tintuc&id=5">Tin tức</a>
+						<a href="#nguoidung">Kiểm tra hội viên</a>
 					</li>
 					<li class="header-narbar__services-item">
-						<a href="../../web-gymPHP/admincp/index.php">Host</a>
+						<a href="../../web-gymPHP/admincp/index.php?action=quanlynguoidung&query=them">Quản lý</a>
 					</li>
 					<li class="header-narbar__services-item">
 						<a href="index.php?quanly=taikhoan&id=7">Tài khoản</a>

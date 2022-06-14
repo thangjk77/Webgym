@@ -3,6 +3,12 @@
     height: var(--header-height);
     /* background: linear-gradient(to right, #ffb347, #ffcc33); */
     background: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    border-bottom: solid 1px #ccc;
 }
 
 .header-narbar {
@@ -39,17 +45,30 @@
 .header-narbar__services {
     display: flex;
     list-style: none;
-    font-size: 1.6rem;
 }
 
 .header-narbar__services-item {
     margin: 0 12px;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    opacity: 1;
+}
+
+.header-narbar__services-item a:hover {
+    cursor: pointer;
+    opacity: 0.9;
+    color: #000;
+    background-color: #ff5722;
 }
 
 .header-narbar__services-item a {
     text-decoration: none;
     color: var(--primary-color);
-    font-weight: 500;
+    font-weight: 600;
+    display: block;
+    line-height: 72px;
+    letter-spacing: 1px;
+    padding: 0 12px;
 }
 
 
@@ -63,6 +82,7 @@
     background-image: url("../img/empty-concrete-room-with-neon-lights.jpg");
     height: 670px;
     background-size: cover;
+    margin-top: 72px;
 }
 
 .banner-img {
@@ -127,7 +147,7 @@
 
 .room-left {
     position: absolute;
-    left: -77%;
+    left: -56%;
     /* overflow: hidden; */
 }
 
@@ -139,7 +159,7 @@
 
 .room-center {
     position: absolute;
-    left: -156%;
+    left: -132%;
 }
 
 .banner-image-room__right {
@@ -149,18 +169,20 @@
 
 .room-right {
     position: absolute;
-    left: -235%;
+    left: -210%;
 }
 
 
 /* CONTAINER */
 
 .container {
-    margin-top: 30px;
+    margin-top: 24px;
 }
 
 .container-services {
-    /* background: #999; */
+    background-color: #ff3d0024;
+    padding-top: 60px;
+    height: 720px;
 }
 
 .services {
@@ -174,7 +196,7 @@
     padding: 40px;
     color: var(--primary-color);
     font-size: 3.6rem;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 100%;
     display: flex;
     justify-content: center;
@@ -182,7 +204,7 @@
 
 .services-description {
     padding: 0 0 40px 0;
-    color: var(--primary-color);
+    color: #386990;
     font-size: 1.8rem;
     font-weight: 400;
     line-height: 100%;
@@ -229,7 +251,7 @@
     left: 16%; */
     line-height: 100%;
     font-size: 2.2rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--primary-color);
     padding: 8px 0;
 }
@@ -244,6 +266,182 @@
     line-height: 100%;
     font-size: 1.6rem;
     font-weight: 400;
-    color: var(--primary-color);
+    color: #386990;
     text-align: center;
+}
+
+
+/* container news */
+
+.container-news {
+    height: 720px;
+    background-color: cornsilk;
+    margin-top: 24px;
+    padding-top: 60px;
+}
+
+
+/* container-user */
+
+.container-user {
+    padding-top: 60px;
+    /* background-color: #ccc; */
+    margin-top: 24px;
+    height: 720px;
+    border: solid 1px #ccc;
+}
+
+.user-functions {}
+
+.function-test,
+.function-tracking,
+.function-bmi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 320px;
+    background-color: #ff90551f;
+}
+
+
+/* .function-bmi {
+    background-image: url("../img/bmi-2.jpg");
+    background-size: contain;
+    height: 310px;
+} */
+
+.function-test_heading,
+.function-tracking_heading,
+.function-bmi_heading {
+    font-size: 2.2rem;
+    font-weight: 600;
+    padding: 20px 0 18px 0;
+    text-transform: uppercase;
+}
+
+.function-test_desc,
+.function-tracking_desc,
+.function-bmi_desc {
+    line-height: 24px;
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.function-test_check {
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: 500;
+    padding: 20px 0 12px 0;
+}
+
+.function-tracking_check {
+    font-size: 1.8rem;
+}
+
+.function-tracking-result {
+    font-size: 1.8rem;
+    color: red;
+}
+
+.function-tracking-input {
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 24px;
+}
+
+.function-tracking-input input {
+    height: 24px;
+    outline: none;
+    box-shadow: none;
+}
+
+.function-tracking-input input:focus {
+    border-image: linear-gradient(45deg, #c2e59c, #64b3f4) 10;
+    box-shadow: 0 0 0 1.5px rgb(0 0 0 / 10%);
+}
+
+.tracking {
+    padding-top: 20px;
+}
+
+
+/* BMI */
+
+.bmi {
+    padding-top: 20px;
+}
+
+.bmi-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 24px;
+}
+
+.bmi-detail input {
+    height: 24px;
+    outline: none;
+    box-shadow: none;
+}
+
+
+/* .bmi-detail input:hover {
+    cursor: pointer;
+} */
+
+.bmi-detail input:focus {
+    border-image: linear-gradient(45deg, #c2e59c, #64b3f4) 10;
+    box-shadow: 0 0 0 1.5px rgba(0, 0, 0, 0.1);
+}
+
+.bmi-name {
+    font-size: 1.6rem;
+}
+
+.bmi-result {}
+
+
+/* CSS */
+
+.bmi-result {
+    margin: 10px 100px;
+    padding: 15px 30px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    border: 0px;
+    font-weight: 700;
+    box-shadow: 0px 0px 14px -7px #f09819;
+    background-image: linear-gradient( 45deg, #ff512f 0%, #f09819 51%, #ff512f 100%);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    /* width: 40%; */
+}
+
+.bmi-result-text {
+    font-size: 1.8rem;
+}
+
+.bmi-result:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+.bmi-result:active {
+    transform: scale(0.95);
+}
+
+.bmi-output {
+    font-size: 1.6rem;
 }

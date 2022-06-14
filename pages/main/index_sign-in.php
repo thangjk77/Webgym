@@ -28,7 +28,9 @@
 			$_SESSION['dangnhap'] = $row_data['tenkhachhang'];
 			// $_SESSION['dangnhap'] = $username;
 			echo '<P>đăng nhập thành công</P>';	
-			header("Location:./admincp/index.php");			
+			header("Location:./admincp/index.php?action=quanlynguoidung&query=them");		
+			echo '<P>đăng nhập thành công</P>';	
+
 		}else {
 			echo '<P>Vui lòng nhập lại</P>'		;	
 		}

@@ -179,9 +179,8 @@ class CamApp(App):
 		else:
 			# print(id)
 			self.check_expiry(id)
-			self.count_day(id)
+			# self.count_day(id)
 
-		
 if __name__ == '__main__':
 	Config.set('graphics', 'width', '250')
 	Config.set('graphics', 'height', '350')

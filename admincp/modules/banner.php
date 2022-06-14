@@ -7,6 +7,7 @@
 
 <style>
 .sign__banner {
+	margin-top: 72px;
 	height: 168px;
 	width: 100%;
 	background-color: red;

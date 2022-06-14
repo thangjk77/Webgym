@@ -2,7 +2,7 @@
 	<div class="grid wide">
 		<div class="row">
 			<?php
-	if(isset($_GET['action']) && $_GET['query']) {
+	if(isset($_GET['action']) && $_GET['query']) {  
 		$tam = $_GET['action'];
 		$query = $_GET['query'];
 	} else {
