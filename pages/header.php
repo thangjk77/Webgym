@@ -2,9 +2,12 @@
 	<div class="grid wide">
 		<div class="header-narbar">
 			<div class="header-narbar-lists">
-				<img src="./img/gym2.png" alt="" class="header-narbar__img">
+				<img src="./img/icons8-dumbbell-50.png" class="header-narbar__img">
 				<span class="header-narbar__logo">
-					<a href="index.php?quanly=trangchu&id=1">JK GYM</a>
+					<a href="index.php?quanly=trangchu&id=1">
+						<span class="JK">JK</span>
+						<span class="GYM">GYM</span>
+					</a>
 				</span>
 			</div>
 			<div class="header-narbar-lists">
