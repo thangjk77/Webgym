@@ -11,7 +11,7 @@
     // $command = escapeshellcmd('python ../../../graduation-thesis/example.py');
     // $output = shell_exec($command);
     // echo $output;
-		echo shell_exec("User_check.py");
+		echo shell_exec("python User_check.py");
 		header('Location:../../../../Web-gymPHP/index.php?quanly=trangchu&id=1#nguoidung');
 ?>
 </head>

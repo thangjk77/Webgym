@@ -120,11 +120,7 @@
 									<span><input type="text" placeholder="" name="tukhoa">
 									</span>
 								</div>
-								<!-- <div class="function-tracking-input">
-									<span class="function-tracking-input_tag">Nhập tên</span>
-									<span><input type="text" placeholder="Nhập tên" name="">
-									</span>
-								</div> -->
+
 								<input type="submit" class="function-tracking_check bmi-result" name="timkiem"
 									value="Kiểm tra">
 
@@ -143,9 +139,9 @@
 								<?php
 									while ($row = mysqli_fetch_array($query_pro)) { 
 								?>
-								<span class="function-tracking-result"> Chào <?php echo $row['name'] ?> , bạn đã tập
+								<span class="function-tracking-result"> Chào <?php echo $row['Ten'] ?> , bạn đã tập
 									được tổng cộng
-									<?php echo $row['Number_day'] ?> ngày
+									<?php echo $row['Songaytap'] ?> ngày
 								</span>
 
 								<?php	
@@ -188,8 +184,35 @@
 
 
 		<div class="container-news">
+			<header class="services-heading">
+				Tin tức mới nhất
+			</header>
+			<span class="services-description">
+				Theo dõi các tin tức mới nhất của JK Gym
+			</span>
 
+			<div class="col l-3 m-6 c-12">
+				<div class="news">
+					<div class="news-img">
+
+					</div>
+					<div class="news-container">
+						<span class="news-heading">
+							Tập luyện
+						</span>
+
+						<span class="news-description">
+							Các bài tập giảm mỡ bụng hiệu quả
+						</span>
+						<span class="news-detail">
+							Những bài tập giảm mỡ bụng siêu nhanh là một phần không thể thiếu với những ai muốn giảm mỡ
+							bụng.
+						</span>
+					</div>
+				</div>
+			</div>
 		</div>
+
 
 
 	</div>

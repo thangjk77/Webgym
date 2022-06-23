@@ -21,20 +21,20 @@
 					</tr>
 					<tr>
 						<td class="add-user-item">Họ và tên</td>
-						<td><input type="text" value="<?php echo $dong['name'] ?>" class="add-user-input"
+						<td><input type="text" value="<?php echo $dong['Ten'] ?>" class="add-user-input"
 								name="hovaten" />
 						</td>
 					</tr>
 					<tr>
 						<td class="add-user-item">Tuổi</td>
-						<td><input type="text" value="<?php echo $dong['age'] ?>" class="add-user-input" name="tuoi" />
+						<td><input type="text" value="<?php echo $dong['Tuoi'] ?>" class="add-user-input" name="tuoi" />
 						</td>
 					</tr>
 					<tr>
 						<td class="add-user-item">Giới tính</td>
 						<td>
-							<select class="select-gender" name="gioitinh">
-								<option value="<?php echo $dong['gender'] ?>"><?php echo $dong['gender'] ?></option>
+							<select class="select-Gioitinh" name="gioitinh">
+								<option value="<?php echo $dong['Gioitinh'] ?>"><?php echo $dong['Gioitinh'] ?></option>
 								<option value="Nam">Nam</option>
 								<option value="Nữ">Nữ</option>
 							</select>
@@ -43,8 +43,8 @@
 					<tr>
 						<td class="add-user-item">Đăng ký gói</td>
 						<td>
-							<select class="select-package" name="goidangky">
-								<option value="<?php echo $dong['goidangky'] ?>"><?php echo $dong['goidangky'] ?>
+							<select class="select-packTuoi" name="goidangky">
+								<option value="<?php echo $dong['Goidangky'] ?>"><?php echo $dong['Goidangky'] ?>
 								</option>
 								<option value="1 Tháng">1 Tháng</option>
 								<option value="3 Tháng">3 Tháng</option>
@@ -57,7 +57,7 @@
 
 					<tr class="day-sign-up">
 						<td class="add-user-item ">Ngày đăng ký</td>
-						<td><input type="date" value="<?php echo $dong['ngaydangky']?>" class="add-user-input"
+						<td><input type="date" value="<?php echo $dong['Ngaydangky']?>" class="add-user-input"
 								name="ngaydangky" /></td>
 					</tr>
 
@@ -67,7 +67,7 @@
 					</tr>
 
 					<!-- <td class="add-user-item ">Ngày hết hạn</td>
-					<td><input type="date" value="<?php echo $dong['ngayhethan']?>" class="add-user-input"
+					<td><input type="date" value="<?php echo $dong['Ngayhethan']?>" class="add-user-input"
 							name="ngayhethan" /></td> -->
 
 					<?php

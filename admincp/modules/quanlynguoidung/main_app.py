@@ -67,9 +67,9 @@ class CamApp(App):
 			isRecordExist = 1
 
 		if (isRecordExist == 0):
-			query = "Insert into host_quanlynguoidung(Nearest_day) values(" + str(date) + "')"
+			query = "Insert into host_quanlynguoidung(Ngaygannhat) values(" + str(date) + "')"
 		else:
-			query = "Update host_quanlynguoidung Set Nearest_day= '" + str(date) + "' Where ID= " + str(id)
+			query = "Update host_quanlynguoidung Set Ngaygannhat= '" + str(date) + "' Where ID= " + str(id)
 
 		cursor.execute(query)
 		conn.commit()
@@ -93,9 +93,9 @@ class CamApp(App):
 			isRecordExist = 1
 
 		if (isRecordExist == 0):
-			query = "Insert into host_quanlynguoidung(Number_day) values(" + str(count) + "')"
+			query = "Insert into host_quanlynguoidung(Songaytap) values(" + str(count) + "')"
 		else:
-			query = "Update host_quanlynguoidung Set Number_day= '" + str(count) + "' Where ID= " + str(id)
+			query = "Update host_quanlynguoidung Set Songaytap= '" + str(count) + "' Where ID= " + str(id)
 
 		cursor.execute(query)
 		conn.commit()
@@ -129,7 +129,7 @@ class CamApp(App):
 		img = face_recognition.load_image_file("input_image/input_image.jpg")
 		face_locations = face_recognition.face_locations(img)
 		if (face_locations == []):
-			print("Hãy để toàn bộ gương mặt vào máy ảnh")
+			# print("Hãy để toàn bộ gương mặt vào máy ảnh")
 			playsound.playsound("voice/4.mp3")
 			return None
 		picture_of_me = face_recognition.load_image_file("input_image/input_image.jpg")

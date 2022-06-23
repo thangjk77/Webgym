@@ -11,7 +11,7 @@
     // $command = escapeshellcmd('python ../../../graduation-thesis/example.py');
     // $output = shell_exec($command);
     // echo $output;
-		echo shell_exec("main_app.py");
+		echo shell_exec("python main_app.py");
 		header('Location:../../index.php?action=quanlynguoidung&query=them');
 ?>
 </head>

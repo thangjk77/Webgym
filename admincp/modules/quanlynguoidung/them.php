@@ -17,12 +17,12 @@
 					</tr>
 					<tr>
 						<td class="add-user-item ">Tuổi</td>
-						<td><input type="text" class="add-user-input select-age" name="tuoi" /></td>
+						<td><input type="text" class="add-user-input select-Tuoi" name="tuoi" /></td>
 					</tr>
 					<tr>
 						<td class="add-user-item">Giới tính</td>
 						<td>
-							<select class="select-gender" name="gioitinh">
+							<select class="select-Gioitinh" name="gioitinh">
 								<option value="0">Giới tính</option>
 								<option value="Nam">Nam</option>
 								<option value="Nữ">Nữ</option>
@@ -34,7 +34,7 @@
 					<tr>
 						<td class="add-user-item">Đăng ký gói</td>
 						<td>
-							<select class="select-package" name="goidangky">
+							<select class="select-packTuoi" name="goidangky">
 								<option value="0">Gói</option>
 								<option value="1 Tháng">1 Tháng</option>
 								<option value="3 Tháng">3 Tháng</option>

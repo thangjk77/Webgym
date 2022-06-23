@@ -9,16 +9,17 @@
     --primary-color: #4b51e5;
 }
 
-html {
+
+/* html {
     font-size: 62.5%;
     line-height: 1.6rem;
-    font-family: "Roboto", sans-serif;
+    font-family: "Poppins";
     box-sizing: border-box;
     scroll-behavior: smooth;
-    /*Hiệu ứng cuộn trang*/
+    Hiệu ứng cuộn trang
     font-family: Helvetica, Arial, sans-serif;
-    /* Chinh kieu chu khong chan */
-}
+    Chinh kieu chu khong chan
+} */
 
 @keyframes growth-bottom {
     from {

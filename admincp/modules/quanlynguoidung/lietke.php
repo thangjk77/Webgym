@@ -40,42 +40,42 @@
 						<?php echo $row['id'] ?>
 					</td>
 					<td>
-						<?php echo $row['name'] ?>
+						<?php echo $row['Ten'] ?>
 					</td>
 					<td>
-						<?php echo $row['age'] ?>
+						<?php echo $row['Tuoi'] ?>
 					</td>
 					<td>
-						<?php echo $row['gender'] ?>
+						<?php echo $row['Gioitinh'] ?>
 					</td>
 
 					<td>
-						<?php echo $row['goidangky'] ?>
+						<?php echo $row['Goidangky'] ?>
 					</td>
 					<td>
 						<input type="text" class="day-expire" name="ngayhethan" value=<?php 
-					if($row['goidangky']==='1 Tháng') { 		
-						$adddate = new DateTime($row['ngaydangky']);
+					if($row['Goidangky']==='1 Tháng') { 		
+						$adddate = new DateTime($row['Ngaydangky']);
 						$interval = new DateInterval('P1M');
 						$adddate->add($interval);
 						echo $ngayhethan = $adddate->format('Y-m-d') ;
-					} elseif($row['goidangky']==='3 Tháng') {
-						$adddate = new DateTime($row['ngaydangky']);
+					} elseif($row['Goidangky']==='3 Tháng') {
+						$adddate = new DateTime($row['Ngaydangky']);
 						$interval = new DateInterval('P3M');
 						$adddate->add($interval);
 						echo $ngayhethan = $adddate->format('Y-m-d') ;
-					} elseif($row['goidangky']==='6 Tháng') {
-						$adddate = new DateTime($row['ngaydangky']);
+					} elseif($row['Goidangky']==='6 Tháng') {
+						$adddate = new DateTime($row['Ngaydangky']);
 						$interval = new DateInterval('P6M');
 						$adddate->add($interval);
 						echo $ngayhethan = $adddate->format('Y-m-d') ;
-					} elseif($row['goidangky']==='9 Tháng') {
-						$adddate = new DateTime($row['ngaydangky']);
+					} elseif($row['Goidangky']==='9 Tháng') {
+						$adddate = new DateTime($row['Ngaydangky']);
 						$interval = new DateInterval('P9M');
 						$adddate->add($interval);
 						echo $ngayhethan = $adddate->format('Y-m-d') ;
-					} elseif($row['goidangky']==='12 Tháng') {
-						$adddate = new DateTime($row['ngaydangky']);
+					} elseif($row['Goidangky']==='12 Tháng') {
+						$adddate = new DateTime($row['Ngaydangky']);
 						$interval = new DateInterval('P12M');
 						$adddate->add($interval);
 						echo $ngayhethan = $adddate->format('Y-m-d') ;
@@ -83,11 +83,11 @@
 					
 					// echo $row['ngayhethan'];
 					// include('xulythoigian.php')
-					if($row['count']==='1') {
-						$sql_update_date = "UPDATE host_quanlynguoidung SET ngayhethan='".$ngayhethan."',count='0' WHERE count='1'";
+					if($row['Bientam']==='1') {
+						$sql_update_date = "UPDATE host_quanlynguoidung SET Ngayhethan='".$ngayhethan."',Bientam='0' WHERE Bientam='1'";
 						mysqli_query($mysqli,$sql_update_date);
-					}else if($row['count']==='3') {
-						$sql_edit_date = "UPDATE host_quanlynguoidung SET ngayhethan='".$ngayhethan."',count='0' WHERE count='3'";
+					}else if($row['Bientam']==='3') {
+						$sql_edit_date = "UPDATE host_quanlynguoidung SET Ngayhethan='".$ngayhethan."',Bientam='0' WHERE Bientam='3'";
 						mysqli_query($mysqli,$sql_edit_date);
 					}
 			 ?> />
