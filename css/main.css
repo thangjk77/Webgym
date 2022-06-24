@@ -8,8 +8,28 @@
     left: 0;
     right: 0;
     z-index: 1;
+    /* animation: haha 1s; */
     /* background-color: rgba(0, 0, 0, 0.09); */
     /* border-bottom: solid 1px #ccc; */
+}
+
+.header-color {
+    background-color: rgba(9, 9, 9, 0.8);
+}
+
+.header-color-none {
+    background: transparent;
+}
+
+.grid-header {
+    width: 100%;
+    display: block;
+    padding: 0 72px;
+}
+
+.grid-header.wide {
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .header-narbar {
@@ -39,6 +59,7 @@
 }
 
 .header-narbar-lists {
+    cursor: pointer;
     align-items: center;
     display: flex;
 }
@@ -49,7 +70,7 @@
 }
 
 .header-narbar__services-item {
-    margin: 0 12px;
+    margin: 0 6px;
     font-size: 1.6rem;
     text-transform: uppercase;
     opacity: 1;
@@ -88,20 +109,6 @@
 .banner-text-heading {
     line-height: 100%;
     padding-bottom: 20px;
-}
-
-.jkgym {
-    padding-top: 140px;
-    font-size: 4.6rem;
-}
-
-.dq {
-    padding-top: 80px;
-    font-size: 4.6rem;
-}
-
-.vip {
-    font-size: 7rem;
 }
 
 .banner-image {
@@ -167,9 +174,10 @@
 }
 
 .container-services {
-    background-color: #ff3d0024;
+    background-color: #fff;
     padding-top: 60px;
     height: 720px;
+    padding: 0 24px;
 }
 
 .services {
@@ -181,7 +189,7 @@
 
 .services-heading {
     padding: 40px;
-    color: var(--primary-color);
+    color: #ee6c0c;
     font-size: 3.6rem;
     font-weight: 600;
     line-height: 100%;
@@ -191,7 +199,7 @@
 
 .services-description {
     padding: 0 0 40px 0;
-    color: #386990;
+    color: #ee6c0c;
     font-size: 1.8rem;
     font-weight: 400;
     line-height: 100%;
@@ -202,6 +210,9 @@
 .services-item {
     display: flex;
     position: relative;
+    border: 4px solid #ee6c0c;
+    border-radius: 28px;
+    overflow: hidden;
 }
 
 .services-item:hover .services-item-effect {
@@ -253,7 +264,7 @@
     line-height: 100%;
     font-size: 1.6rem;
     font-weight: 400;
-    color: #386990;
+    color: #000;
     text-align: center;
 }
 
@@ -295,13 +306,33 @@
 
 .container-user {
     padding-top: 60px;
-    /* background-color: #ccc; */
+    background-image: url(../img/course_bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
     margin-top: 24px;
     height: 720px;
-    border: solid 1px #ccc;
 }
 
-.user-functions {}
+.services-heading {
+    padding: 40px;
+    color: #ee6c0c;
+    font-size: 3.6rem;
+    font-weight: 600;
+    line-height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.user-functions {
+    padding: 0 24px;
+}
+
+.function-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
 
 .function-test,
 .function-tracking,
@@ -311,7 +342,9 @@
     align-items: center;
     text-align: center;
     height: 320px;
-    background-color: #ff90551f;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 24px;
 }
 
 
@@ -324,10 +357,15 @@
 .function-test_heading,
 .function-tracking_heading,
 .function-bmi_heading {
+    color: rgb(0, 0, 0);
     font-size: 2.2rem;
     font-weight: 600;
     padding: 20px 0 18px 0;
     text-transform: uppercase;
+}
+
+.services-heading-color {
+    color: #fff;
 }
 
 .function-test_desc,
@@ -356,16 +394,14 @@
 
 .function-tracking-input {
     font-size: 1.6rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding-bottom: 24px;
 }
 
 .function-tracking-input input {
-    height: 24px;
+    height: 32px;
     outline: none;
     box-shadow: none;
+    width: 80%;
 }
 
 .function-tracking-input input:focus {
@@ -385,16 +421,14 @@
 }
 
 .bmi-detail {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding-bottom: 24px;
 }
 
 .bmi-detail input {
-    height: 24px;
+    height: 32px;
     outline: none;
     box-shadow: none;
+    width: 80%;
 }
 
 
@@ -562,29 +596,17 @@ img {
 /* Fading animation */
 
 .fade {
-    animation-name: fade;
-    animation-duration: 1s;
+    animation: fade ease-out 0.7s;
 }
 
 @keyframes fade {
     from {
-        transform: translateX(-100%);
+        transform: translateX(100%);
         opacity: 0.9;
     }
     to {
-        transform: translateX(0%);
         opacity: 1;
-    }
-}
-
-
-/* On smaller screens, decrease text size */
-
-@media only screen and (max-width: 300px) {
-    .prev,
-    .next,
-    .text {
-        font-size: 11px;
+        transform: translateX(0%);
     }
 }
 

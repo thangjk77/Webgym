@@ -1,5 +1,5 @@
-<div class="header">
-	<div class="grid wide">
+<div class="header ">
+	<div class="grid-header wide">
 		<div class="header-narbar">
 			<div class="header-narbar-lists">
 				<img src="./img/icons8-dumbbell-50.png" class="header-narbar__img">
@@ -37,3 +37,17 @@
 		</div>
 	</div>
 </div>
+
+<script>
+let header = document.querySelector('.header');
+console.log(document.documentElement.scrollTop)
+
+function handleOnScroll() {
+	if (document.documentElement.scrollTop > 72) {
+		header.classList.add('header-color');
+	} else {
+		header.classList.remove('header-color');
+	}
+}
+window.onscroll = () => handleOnScroll();
+</script>

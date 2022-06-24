@@ -15,6 +15,7 @@ html {
     font-family: "Roboto", sans-serif;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    overflow-x: hidden;
     /*Hiệu ứng cuộn trang*/
     /* font-family: Helvetica, Arial, sans-serif; */
     /* Chinh kieu chu khong chan */
