@@ -6,20 +6,20 @@
 
 :root {
     --header-height: 72px;
-    --primary-color: #4b51e5;
+    --primary-color: #fff;
 }
 
-
-/* html {
+html {
     font-size: 62.5%;
     line-height: 1.6rem;
-    font-family: "Poppins";
+    font-family: "Roboto", sans-serif;
     box-sizing: border-box;
     scroll-behavior: smooth;
-    Hiệu ứng cuộn trang
-    font-family: Helvetica, Arial, sans-serif;
-    Chinh kieu chu khong chan
-} */
+    overflow-x: hidden;
+    /*Hiệu ứng cuộn trang*/
+    /* font-family: Helvetica, Arial, sans-serif; */
+    /* Chinh kieu chu khong chan */
+}
 
 @keyframes growth-bottom {
     from {

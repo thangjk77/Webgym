@@ -27,11 +27,11 @@ button.addEventListener("click", () => {
         const bmi = (weight / ((height * height) / 10000)).toFixed(2);
 
         if (bmi < 18.6) {
-            result.innerHTML = "Thiếu cân : " + bmi;
+            result.innerHTML = "BMI " + bmi + " : bạn đang thiếu cân ";
         } else if (bmi >= 18.6 && bmi < 24.9) {
-            result.innerHTML = "Bình thường : " + bmi;
+            result.innerHTML = "BMI " + bmi + " : bạn đang bình thường";
         } else {
-            result.innerHTML = "Quá cân : " + bmi;
+            result.innerHTML = "BMI " + bmi + " : bạn đang quá cân";
         }
     }
     // else {

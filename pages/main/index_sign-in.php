@@ -29,7 +29,7 @@
 			// $_SESSION['dangnhap'] = $username;
 			echo '<P>đăng nhập thành công</P>';	
 			header("Location:./admincp/index.php?action=quanlynguoidung&query=them");		
-			echo '<P>đăng nhập thành công</P>';	
+			
 
 		}else {
 			echo '<P>Vui lòng nhập lại</P>'		;	
@@ -95,7 +95,7 @@
 
 		<div class="sign__banner">
 			<div class="sign__banner-text">
-				<span class="sign__banner-heading">Đăng ký thành viên Luxstay - Tích điểm thưởng và nhận ưu đãi</span>
+				<span class="sign__banner-heading">Đăng ký thành viên Jk GYM - Tích điểm thưởng và nhận ưu đãi</span>
 				<span class="sign__banner-desc">Nhanh chóng, tiện lợi và an toàn. Đăng ký liền tay, rinh ngay quyền
 					lợi.</span>
 			</div>
@@ -109,7 +109,7 @@
 							<img src="https://www.luxstay.com/account/coins@2x.png" alt="" class="benefits--img1">
 							<span class="benefits--heading">Tích điểm nhanh chóng</span>
 							<span class="benefits--desc">Tích điểm đối với mỗi lượt đặt chỗ thành công. Quy đổi thành
-								Lux Credit để du lịch nhiều hơn nữa.</span>
+								JK Credit để du lịch nhiều hơn nữa.</span>
 						</div>
 						<div class="benefits">
 							<img src="https://www.luxstay.com/account/wallet@2x.png" alt="" class="benefits--img2">
@@ -129,7 +129,7 @@
 						<div class="benefits">
 							<img src="https://www.luxstay.com/account/backpack@2x.png" alt="" class="benefits--img4">
 							<span class="benefits--heading">Ưu đãi mỗi ngày</span>
-							<span class="benefits--desc">Nhận thông báo ưu đãi từ Luxstay khi có kế hoạch du lịch để lựa
+							<span class="benefits--desc">Nhận thông báo ưu đãi từ JK GYM khi có kế hoạch du lịch để lựa
 								chọn và đặt ngay cho mình một chỗ ở phù hợp, tiện nghi với giá tốt nhất.</span>
 						</div>
 					</div>
@@ -152,7 +152,7 @@
 								<ul class="account--lists">
 									<li class="account--item">Quên mật khẩu? <a href="" class="account--link">Nhấn vào
 											đây</a></li>
-									<li class="account--item">Bạn chưa có tài khoản Luxstay?
+									<li class="account--item">Bạn chưa có tài khoản JK GYM?
 									<li class="account--link js-sign-up">Đăng ký</li>
 									</li>
 									<li class="account--item">Hoặc</li>
@@ -212,12 +212,12 @@
 
 								<input type="submit" name="dangky" value="Đăng ký" class="account--btn">
 								<ul class="account--lists">
-									<li class="account--item">Bạn đã có tài khoản Luxstay?
+									<li class="account--item">Bạn đã có tài khoản JK GYM?
 									<li class="account--link js-sign-in">Đăng nhập</li>
 									</li>
 									<li class="account--item">Tôi đồng ý với <a href="" class="account--link"> Bảo
 											mật</a>
-										và <a href="" class="account--link">Điều khoản hoạt động</a> của Luxstay</li>
+										và <a href="" class="account--link">Điều khoản hoạt động</a> của JK GYM</li>
 								</ul>
 							</div>
 						</form>

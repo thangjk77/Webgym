@@ -88,7 +88,7 @@
 			<header class="services-heading services-heading-color ">
 				Kiểm tra hội viên
 			</header>
-			<span class="services-description">
+			<span class="services-description-user">
 				Luyện tập tại JK GYM sẽ giúp bạn đạt được mục tiêu sức khỏe và thể hình.
 			</span>
 			<div class="row">
@@ -117,7 +117,7 @@
 						<form class="tracking" action="" autocomplete="off" method="POST">
 							<div class="function-tracking-input">
 								<!-- <span class="function-tracking-input_tag">Nhập id :</span> -->
-								<span><input type="text" placeholder="Nhập id" name="tukhoa">
+								<span><input type="text" placeholder="Nhập ID" name="tukhoa">
 								</span>
 							</div>
 
@@ -137,17 +137,17 @@
 								?>
 
 						</form>
-					</div>
-					<?php
+						<?php
 									while ($row = mysqli_fetch_array($query_pro)) { 
 								?>
-					<span class="function-tracking-result"> Chào <?php echo $row['Ten'] ?> , bạn đã tập
-						được tổng cộng
-						<?php echo $row['Songaytap'] ?> ngày
-					</span>
+						<span class="function-tracking-result"> Chào <?php echo $row['Ten'] ?> , bạn đã tập
+							được tổng cộng
+							<?php echo $row['Songaytap'] ?> ngày
+						</span>
 
-					<?php	
+						<?php	
 							} ?>
+					</div>
 				</div>
 
 				<div class="col l-4 m-6 c-12">
@@ -162,13 +162,15 @@
 							<div class="bmi-detail">
 								<!-- <span class="bmi-name">Nhập chiều cao (cm): </span> -->
 								<span><input placeholder="Nhập chiều cao (cm)" autocomplete="off" type="text"
-										id="height"><br><span id="height_error"></span></span>
+										id="height"></span>
+								<br><span id="height_error" style="color:red; font-size: 1.3rem"></span>
 							</div>
 
 							<div class="bmi-detail">
 								<!-- <span class="bmi-name">Nhập cân nặng (kg): </span> -->
-								<span><input placeholder="Nhập cân nặng (kg)" autocomplete=" off" type=" text"
-										id="weight"><br><span id="weight_error"></span></span>
+								<span><input placeholder="Nhập cân nặng (kg)" autocomplete="off" type=" text"
+										id="weight"></span>
+								<br><span id="weight_error" style="color:red; font-size: 1.3rem"></span>
 							</div>
 
 							<button class="bmi-result bmi-result-text" role="button" id="btn">Kết quả</button>
@@ -183,37 +185,79 @@
 	</div>
 
 
-	<div class="container-news">
+	<div id="tintuc" class="container-news">
 		<header class="services-heading">
 			Tin tức mới nhất
 		</header>
 		<span class="services-description">
 			Theo dõi các tin tức mới nhất của JK Gym
 		</span>
+		<div class="row">
+			<div class="col l-4 m-6 c-12">
+				<div class="news">
+					<div class="news-img">
+						<img src="./img/new.jpg" class="news-photo">
+					</div>
+					<div class="news-container">
+						<span class="news-heading">
+							Tập luyện
+						</span>
 
-		<div class="col l-3 m-6 c-12">
-			<div class="news">
-				<div class="news-img">
-
-				</div>
-				<div class="news-container">
-					<span class="news-heading">
-						Tập luyện
-					</span>
-
-					<span class="news-description">
-						Các bài tập giảm mỡ bụng hiệu quả
-					</span>
-					<span class="news-detail">
-						Những bài tập giảm mỡ bụng siêu nhanh là một phần không thể thiếu với những ai muốn giảm mỡ
-						bụng.
-					</span>
+						<span class="news-description">
+							Các bài tập giảm mỡ bụng hiệu quả
+						</span>
+						<span class="news-detail">
+							Những bài tập giảm mỡ bụng siêu nhanh là một phần không thể thiếu với những ai muốn giảm mỡ
+							bụng.
+						</span>
+					</div>
 				</div>
 			</div>
+			<div class="col l-4 m-6 c-12">
+				<div class="news">
+					<div class="news-img">
+						<img src="./img/new2.jpg" class="news-photo">
+					</div>
+					<div class="news-container">
+						<span class="news-heading">
+							Ăn uống
+						</span>
+
+						<span class="news-description">
+							Các chế độ ăn hợp lý
+						</span>
+						<span class="news-detail">
+							Những bài tập giảm mỡ bụng siêu nhanh là một phần không thể thiếu với những ai muốn giảm mỡ
+							bụng.
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="col l-4 m-6 c-12">
+				<div class="news">
+					<div class="news-img">
+						<img src="./img/new4.jpg" class="news-photo">
+					</div>
+					<div class="news-container">
+						<span class="news-heading">
+							Khuyến mãi
+						</span>
+
+						<span class="news-description">
+							Các chương trình khuyến mãi hấp dẫn.
+						</span>
+						<span class="news-detail">
+							Những bài tập giảm mỡ bụng siêu nhanh là một phần không thể thiếu với những ai muốn giảm mỡ
+							bụng.
+						</span>
+					</div>
+				</div>
+			</div>
+
+
 		</div>
+
+
 	</div>
-
-
-
 	<!-- </div> -->
 </div>

@@ -23,9 +23,9 @@
 	// }elseif($tam=='quanlytaikhoanadmin') {
 	// 	include("main/lichhoc.php");
 	// }
-	else {
-		include("modules/dashboard.php");
-	}
+	// else {
+	// 	include("modules/dashboard.php");
+	// }
 	?>
 		</div>
 	</div>

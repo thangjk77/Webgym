@@ -7,14 +7,6 @@
 	if($tam=='trangchu') {
 		include("banner.php");
 		include("container.php");
-	}elseif($tam=='clb') {
-		include("main/clb.php");
-	}elseif($tam=='dichvu') {
-		include("main/dichvu.php");
-	}elseif($tam=='lichhoc') {
-		include("main/lichhoc.php");
-	}elseif($tam=='tintuc') {
-		include("main/tintuc.php");
 	}
 
 	elseif($tam=='taikhoan') {

@@ -13,16 +13,16 @@
 			<div class="header-narbar-lists">
 				<ul class="header-narbar__services">
 					<li class="header-narbar__services-item">
-						<a href="#dichvu">Dịch vụ</a>
+						<a href="index.php?quanly=trangchu&id=1#dichvu">Dịch vụ</a>
 					</li>
 					<!-- <li class="header-narbar__services-item">
 						<a href="index.php?quanly=lichhoc&id=4">Lịch học</a>
 					</li> -->
 					<li class="header-narbar__services-item">
-						<a href="#tintuc">Tin tức</a>
+						<a href="index.php?quanly=trangchu&id=1#nguoidung">Kiểm tra hội viên</a>
 					</li>
 					<li class="header-narbar__services-item">
-						<a href="#nguoidung">Kiểm tra hội viên</a>
+						<a href="index.php?quanly=trangchu&id=1#tintuc">Tin tức</a>
 					</li>
 					<li class="header-narbar__services-item">
 						<a href="../../web-gymPHP/admincp/index.php?action=quanlynguoidung&query=them">Quản lý</a>
@@ -30,7 +30,6 @@
 					<li class="header-narbar__services-item">
 						<a href="index.php?quanly=taikhoan&id=7">Tài khoản</a>
 					</li>
-
 
 				</ul>
 			</div>

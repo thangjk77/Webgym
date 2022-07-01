@@ -175,9 +175,8 @@
 
 .container-services {
     background-color: #fff;
-    padding-top: 60px;
     height: 720px;
-    padding: 0 24px;
+    padding: 60px 24px 0 24px;
 }
 
 .services {
@@ -199,7 +198,17 @@
 
 .services-description {
     padding: 0 0 40px 0;
+    color: #000;
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.services-description-user {
     color: #ee6c0c;
+    padding: 0 0 40px 0;
     font-size: 1.8rem;
     font-weight: 400;
     line-height: 100%;
@@ -272,17 +281,33 @@
 /* container news */
 
 .container-news {
-    height: 720px;
-    background-color: cornsilk;
+    height: 800px;
+    background-color: #fff;
     margin-top: 24px;
-    padding-top: 60px;
+    padding: 60px 24px 0 24px;
+}
+
+.news {
+    border-radius: 20px;
 }
 
 .news-img {
-    background-image: url("../img/full-shot-people-doing-burpees.jpg");
-    height: 300px;
+    border-radius: 20px;
+    transition: transform linear 0.2s;
+}
+
+.news-img:hover {
+    transform: translateY(-4px);
+    cursor: pointer;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 40%);
+}
+
+.news-photo {
+    height: 256px;
+    width: 100%;
     background-size: cover;
     background-repeat: no-repeat;
+    border-radius: 20px;
 }
 
 .news-container {
@@ -290,15 +315,27 @@
     flex-direction: column;
 }
 
-.news-heading,
+.news-heading {
+    font-size: 2.2rem;
+    color: #ee6c0c;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 28px 0 12px 0;
+}
+
 .news-description {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #000;
     text-transform: uppercase;
     padding: 12px 0;
 }
 
 .news-detail {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+    color: #000;
+    font-weight: 350;
+    line-height: 20px;
 }
 
 
@@ -341,10 +378,11 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    height: 320px;
+    height: 346px;
     background-color: #fff;
     border-radius: 20px;
-    padding: 24px;
+    padding: 24px 24px 50px 24px;
+    position: relative;
 }
 
 
@@ -388,8 +426,12 @@
 }
 
 .function-tracking-result {
+    display: block;
     font-size: 1.8rem;
     color: red;
+    text-align: center;
+    position: absolute;
+    top: 89%;
 }
 
 .function-tracking-input {
@@ -398,10 +440,12 @@
 }
 
 .function-tracking-input input {
-    height: 32px;
+    height: 36px;
     outline: none;
     box-shadow: none;
     width: 80%;
+    text-align: center;
+    font-size: 1.7rem;
 }
 
 .function-tracking-input input:focus {
@@ -422,13 +466,16 @@
 
 .bmi-detail {
     padding-bottom: 24px;
+    height: 52px;
 }
 
 .bmi-detail input {
-    height: 32px;
+    height: 36px;
     outline: none;
     box-shadow: none;
     width: 80%;
+    text-align: center;
+    font-size: 1.7rem;
 }
 
 
@@ -487,7 +534,11 @@
 }
 
 .bmi-output {
-    font-size: 1.6rem;
+    display: block;
+    font-size: 1.8rem;
+    color: red;
+    text-align: center;
+    padding-top: 12px;
 }
 
 

@@ -24,7 +24,7 @@
 		<!-- <div class="text">Caption Two</div> -->
 	</div>
 
-	<div class="mySlides fade w-[100vw]">
+	<div class="mySlides fade ">
 		<div class="numbertext">
 			<div class="banner-text">
 				<p>Không đau đớn
