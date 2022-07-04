@@ -23,6 +23,65 @@ html {
 }
 
 
+/* Banner */
+
+.sign__banner {
+    margin-top: 72px;
+    height: 360px;
+    width: 100%;
+    background-image: url("../../img/about_bg.png");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.modal {
+    background: rgba(0, 0, 0, 1);
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0.7;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+}
+
+.sign__banner-text {
+    position: absolute;
+    top: 70px;
+    left: 78px;
+    display: flex;
+    flex-direction: column;
+    padding: 56px 0 56px 112px;
+}
+
+.sign__banner-heading {
+    font-size: 7.2rem;
+    text-transform: uppercase;
+    color: #ee6c0c;
+    font-weight: 700;
+    padding-bottom: 24px;
+    line-height: 100%;
+}
+
+.sign__banner-desc {
+    font-size: 2.8rem;
+    color: #fff;
+    font-weight: 400;
+}
+
+.header-item_account {
+    font-size: 1.4rem;
+    padding: 0 16px;
+}
+
+.header-item_account:hover {
+    cursor: pointer;
+    color: #64b3f4;
+}
+
+
 /* CSS */
 
 .button-51 {
@@ -142,6 +201,7 @@ tr {
 .add {
     border: 1px solid #ccc;
     border-radius: 5px;
+    margin: auto;
 }
 
 .add-user {}
@@ -257,4 +317,81 @@ input.add-user-submit:hover {
     background-color: #ccc;
     height: 500px;
     margin-top: 50px;
+}
+
+
+/* footer  */
+
+.footer {
+    padding: 42px 42px 0 192px;
+    height: 300px;
+    background-color: rgba(9, 9, 9, 0.6);
+}
+
+.footer-content-heading {
+    padding: 24px 0;
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.footer-content-desc {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    text-align: justify;
+}
+
+.content-desc-item {
+    padding-bottom: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.content-desc-icon {
+    font-size: 1.8rem;
+    padding: 0 8px 0 0;
+}
+
+.content-desc-text>a {
+    text-decoration: none;
+    color: #000;
+}
+
+.content-desc-text>a:hover {
+    color: #ee6c0c;
+}
+
+.content-desc-link {
+    list-style: none;
+}
+
+.content-desc-link-item a {
+    display: block;
+    text-decoration: none;
+    color: #000;
+}
+
+.content-desc-link-item {
+    display: flex;
+    align-items: center;
+    padding-bottom: 12px;
+}
+
+.content-desc-link-item i {
+    display: block;
+    text-decoration: none;
+    color: #000;
+    padding-right: 8px;
+    font-size: 2.2rem;
+}
+
+.content-desc-link-item:hover {
+    color: #ee6c0c;
+    cursor: pointer;
+}
+
+.content-desc-link-item a:hover {
+    color: #ee6c0c;
+    cursor: pointer;
 }

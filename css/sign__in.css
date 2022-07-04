@@ -1,5 +1,5 @@
 .app__sign-in {
-    height: 300vh;
+    height: 120vh;
     /* margin-top: 72px; */
 }
 
@@ -7,7 +7,7 @@
     height: 240px;
     width: 100%;
     background-color: red;
-    background-image: linear-gradient(to right, #c2e59c, #64b3f4);
+    background-image: linear-gradient(to right, #dadada, #000000);
 }
 
 .sign__container {
@@ -106,9 +106,10 @@
 
 .account--heading {
     font-size: 2.4rem;
-    color: var(--text-color);
+    color: #ee6c0c;
     font-weight: 700;
     padding-bottom: 36px;
+    text-transform: uppercase;
 }
 
 .account--desc {
@@ -189,7 +190,7 @@ li.account--link {
     border: none;
     margin-bottom: 16px;
     background-size: 200% auto;
-    background-image: linear-gradient( to right, #c2e59c 0%, #64b3f4 51%, #c2e59c 100%);
+    background-image: linear-gradient( to right, #ee6c0c 0%, #ff9140c4 51%, #ee6c0c 100%);
     transition: 0.5s;
 }
 
@@ -258,6 +259,11 @@ li.account--link {
 .currency-more-account:hover {
     cursor: pointer;
     color: #64b3f4;
+}
+
+.js-sign-up,
+.js-sign-in {
+    font-size: 1.4rem;
 }
 
 

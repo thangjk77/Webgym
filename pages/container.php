@@ -227,7 +227,7 @@
 							Các chế độ ăn hợp lý
 						</span>
 						<span class="news-detail">
-							Những bài tập giảm mỡ bụng siêu nhanh là một phần không thể thiếu với những ai muốn giảm mỡ
+							Những chế độ ăn hợp lý là một phần không thể thiếu với những ai muốn giảm mỡ
 							bụng.
 						</span>
 					</div>
@@ -247,8 +247,7 @@
 							Các chương trình khuyến mãi hấp dẫn.
 						</span>
 						<span class="news-detail">
-							Những bài tập giảm mỡ bụng siêu nhanh là một phần không thể thiếu với những ai muốn giảm mỡ
-							bụng.
+							Các chương trình khuyến mãi hấp dẫn đang chờ đón các bạn, theo dõi và đăng ký ngay bạn nhé !
 						</span>
 					</div>
 				</div>

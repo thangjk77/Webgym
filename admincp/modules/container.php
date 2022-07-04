@@ -1,7 +1,7 @@
 <?php 
 	if(isset($_GET['dangxuat'])&&$_GET['dangxuat']==1) {
 		unset($_SESSION['dangnhap']);
-		header('Location:index.php?quanly=taikhoan&id=7');
+		header('Location:../../../../../web-gymPHP/index.php?quanly=taikhoan&id=7');
 	}
 ?>
 <div class="manage">
@@ -21,7 +21,6 @@
 			?>
 				</a></li>
 		</button>
-
 	</ul>
 </div>
 </div>

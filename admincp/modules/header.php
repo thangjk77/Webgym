@@ -1,35 +1,3 @@
-<!-- <div class="header">
-	<div class="grid wide">
-		<div class="header-narbar">
-			<div class="header-narbar-lists">
-				<img src="../img/gym2.png" alt="" class="header-narbar__img">
-				<span class="header-narbar__logo">
-					<a href="../../../web-gymPHP/index.php?quanly=trangchu&id=1">JK GYM</a>
-				</span>
-			</div>
-			<div class="header-narbar-lists">
-				<ul class="header-narbar__services">
-
-					<li class="header-narbar__services-item">
-						<a href="../../../web-gymPHP/index.php?quanly=trangchu&id=1#dichvu">Dịch vụ</a>
-					</li>
-					<li class="header-narbar__services-item">
-						<a href="../../../web-gymPHP/index.php?quanly=trangchu&id=4#tintuc">Tin Tức</a>
-					</li>
-					<li class="header-narbar__services-item">
-						<a href="../../../web-gymPHP/index.php?quanly=trangchu&id=1#nguoidung">Kiểm tra hội viên</a>
-					</li>
-					<li class="header-narbar__services-item">
-						<a href="../../../web-gymPHP/admincp//index.php">Quản lý</a>
-					</li>
-					<li class="header-narbar__services-item">
-						<a href="../../../web-gymPHP/index.php?quanly=taikhoan&id=7">Tài khoản</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-</div> -->
 <div class="header">
 	<div class="grid-header wide">
 		<div class="header-narbar">
@@ -47,7 +15,6 @@
 					<li class="header-narbar__services-item">
 						<a class="header-color-black"
 							href="../../../web-gymPHP/index.php?quanly=trangchu&id=1#dichvu">Dịch vụ</a>
-
 					</li>
 					<li class="header-narbar__services-item">
 						<a class="header-color-black"
@@ -56,7 +23,6 @@
 					<li class="header-narbar__services-item">
 						<a class="header-color-black"
 							href="../../../web-gymPHP/index.php?quanly=trangchu&id=4#tintuc">Tin Tức</a>
-
 					</li>
 					<li class="header-narbar__services-item">
 						<a class="header-color-black"
@@ -71,7 +37,6 @@
 		</div>
 	</div>
 </div>
-
 <script>
 let header = document.querySelector('.header');
 let logoText = document.querySelector('.GYM');
