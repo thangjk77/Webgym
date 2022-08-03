@@ -31,15 +31,20 @@ if(isset($_POST['themnguoidung'])) {
 
 elseif(isset($_POST['suanguoidung'])) {
 						//SỬA NGƯỜI DÙNG
+	$id_old = $_GET['id'];
 	$sql_update = "UPDATE host_quanlynguoidung SET id='".$id."', Ten='".$hovaten."', Tuoi='".$tuoi."', Gioitinh='".$gioitinh."',Goidangky='".$goidangky."',ngaydangky='".$ngaydangky."',Bientam='3' WHERE id='$_GET[idnguoidung]'";
 	mysqli_query($mysqli,$sql_update);
-	header('Location:../../index.php?action=quanlynguoidung&query=them');     
+	header('Location:../../index.php?action=quanlynguoidung&query=them');  
+	include('suatenanh.php');
+
 } else {
 					 // XÓA NGƯỜI DÙNG
 	$id = $_GET['idnguoidung']; 
 	$sql_xoa ="DELETE FROM host_quanlynguoidung WHERE id ='".$id."'";
 	mysqli_query($mysqli,$sql_xoa);
 	header('Location:../../index.php?action=quanlynguoidung&query=them');
+	include('xoa.php');
+
 
 }
 

@@ -32,7 +32,19 @@
 			
 
 		}else {
-			echo '<P>Vui lòng nhập lại</P>'		;	
+			echo '<div class="modal js-modal">
+			<div class="sign-up-success js-sign-up-success">
+				<div class="modal-close js-modal-close">
+				<i class="fa-solid fa-xmark"></i>
+				</div>
+				<div class="success-notice">
+					<span class="success-notice_text"> Tài khoản không tồn tại !!!
+					
+					</span>
+					
+				</div>
+			</div>
+		</div>'		;	
 		}
 	}
 	if(isset($_POST['dangky'])) {
@@ -50,16 +62,8 @@
 					<i class="fa-solid fa-xmark"></i>
 					</div>
 					<div class="success-notice">
-						<span class="success-notice_text"> Chúc mừng bạn đã đăng ký thành công</span>
-						<span class="success-notice_text">Mã giảm giá của bạn là </span>
-						<span class="success-notice_text">
-							<p id="demo"></p>
-							<script>
-								let x = Math.floor((Math.random() * 100000) + 1);
-								document.getElementById("demo").innerHTML = x;
-							</script>
-						</span>
-						<span class="success-notice_text">Sử dụng mã khi đến tạo thẻ thành viên tại tất cả phòng tập của JK GYM !</span>
+						<span class="success-notice_text"> Đăng ký thành công!</span>
+						
 					</div>
 				</div>
 			</div>
@@ -67,7 +71,15 @@
 				}
 			}
 		?>
-
+<!-- <span class="success-notice_text">Mã giảm giá của bạn là </span>
+						<span class="success-notice_text">
+							<p id="demo"></p>
+							<script>
+								let x = Math.floor((Math.random() * 100000) + 1);
+								document.getElementById("demo").innerHTML = x;
+							</script>
+						</span>
+						<span class="success-notice_text">Sử dụng mã khi đến tạo thẻ thành viên tại tất cả phòng tập của JK GYM !</span> -->
 <!DOCTYPE html>
 <html lang="en">
 

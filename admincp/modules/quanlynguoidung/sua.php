@@ -66,9 +66,7 @@
 						</td>
 					</tr>
 
-					<!-- <td class="add-user-item ">Ngày hết hạn</td>
-					<td><input type="date" value="<?php echo $dong['Ngayhethan']?>" class="add-user-input"
-							name="ngayhethan" /></td> -->
+
 
 					<?php
 			 }  ?>

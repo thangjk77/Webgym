@@ -83,6 +83,7 @@
 					
 					// echo $row['ngayhethan'];
 					// include('xulythoigian.php')
+				
 					if($row['Bientam']==='1') {
 						$sql_update_date = "UPDATE host_quanlynguoidung SET Ngayhethan='".$ngayhethan."',Bientam='0' WHERE Bientam='1'";
 						mysqli_query($mysqli,$sql_update_date);

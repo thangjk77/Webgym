@@ -11,6 +11,7 @@
     // $command = escapeshellcmd('python ../../../graduation-thesis/example.py');
     // $output = shell_exec($command);
     // echo $output;
+		set_time_limit(500);
 		echo shell_exec("python main_app.py");
 		header('Location:../../index.php?action=quanlynguoidung&query=them');
 ?>
